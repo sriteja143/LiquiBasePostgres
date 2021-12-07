@@ -1,0 +1,24 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+ 
+    <changeSet author="guru" id="changelog-1.0">
+        <createTable tableName="person">
+            <column name="pid" type="serial" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="pname" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dept" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="person"/>
+        </rollback>
+    </changeSet>
+ 
+</databaseChangeLog>
